@@ -38,6 +38,8 @@ nav ul.desktop-menu {
 }
 nav ul.desktop-menu li {
 	display: inline-block;
+	margin-before: 0.7em;
+	margin-after: 0.7em;
 	-webkit-margin-before: 0.7em;
 	-webkit-margin-after: 0.7em;
 }
