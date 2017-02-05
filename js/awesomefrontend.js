@@ -48,25 +48,25 @@ document.getElementsByClassName("progress")[0].style.opacity = 1;
 
 var progress_style = window.getComputedStyle(document.getElementsByClassName("progress")[0]);
 
+function hideProgressBar() {
+	if (document.getElementsByClassName("progress")[0].style.opacity == 1) {
+		var progress_duration = parseInt(progress_style.getPropertyValue('transition-duration').replace("s","")) * 1000;
+		setTimeout(function() {
+			fadeOut(document.getElementsByClassName("progress")[0]);
+		}, progress_duration);
+	}
+}
 function loadPercentage() {
 	loaded_percentage += element_percentage;
 	document.getElementsByClassName("bar")[0].style.width = loaded_percentage+"%";
-}
-for (var i = 0; i < everything.length; i++) {
-	this.onload = loadPercentage();
-}
-function hideProgressBar() {
-	if (document.getElementsByClassName("progress")[0].style.opacity == 1 && document.getElementsByClassName("bar")[0].style.width == "100%") {
-		fadeOut(document.getElementsByClassName("progress")[0]);
+	if (document.getElementsByClassName("bar")[0].style.width == "100%") {
+		hideProgressBar();
 	}
 }
 function progressBar() {
-	var progress_duration = parseInt(progress_style.getPropertyValue('transition-duration').replace("s","")) * 100;
-	var progress_bar = document.getElementsByClassName("bar")[0];
-	//progress_bar.style.width = "100%";
-	setTimeout(function() {
-		hideProgressBar();
-	}, progress_duration);
+	for (var i = 0; i < everything.length; i++) {
+		this.onload = loadPercentage();
+	}
 }
 /* Progress Bar ENDS here */
 
