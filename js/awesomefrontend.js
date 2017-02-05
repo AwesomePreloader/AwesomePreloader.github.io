@@ -107,7 +107,6 @@ function mobileMenu() {
 		mobile_menu.style.zIndex = 2;
 		slideIn(mobile_menu);
 	}
-	generateOverlay(element);
 }
 mobile_menu_toggler.onclick = function() {
 	mobileMenu();
