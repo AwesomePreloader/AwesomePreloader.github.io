@@ -50,7 +50,7 @@ var progress_style = window.getComputedStyle(document.getElementsByClassName("pr
 
 function loadPercentage() {
 	loaded_percentage += element_percentage;
-	document.getElementsByClassName("bar")[0].style.width += loaded_percentage+"%";
+	document.getElementsByClassName("bar")[0].style.width = loaded_percentage+"%";
 }
 for (var i = 0; i < everything.length; i++) {
 	this.onload = loadPercentage();
@@ -61,10 +61,9 @@ function hideProgressBar() {
 	}
 }
 function progressBar() {
-	var progress_duration = parseInt(progress_style.getPropertyValue('transition-duration').replace("s","")) * 1000;
+	var progress_duration = parseInt(progress_style.getPropertyValue('transition-duration').replace("s","")) * 100;
 	var progress_bar = document.getElementsByClassName("bar")[0];
-	progress_bar.style.width = "100%";
-	hideProgressBar();
+	//progress_bar.style.width = "100%";
 	setTimeout(function() {
 		hideProgressBar();
 	}, progress_duration);
