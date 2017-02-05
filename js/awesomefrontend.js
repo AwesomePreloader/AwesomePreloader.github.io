@@ -90,7 +90,7 @@ function mobileMenuOverlay() {
 		}
 	}
 }
-mobile_menu_toggler.onclick = function() {
+function mobileMenu() {
 	mobile_menu.innerHTML = "<div class='general-overlay'></div><ul class='mobile-menu-drawer'>"+desktop_menu.innerHTML+"</ul></div>";
 	mobileMenuOverlay();
 	var animation = mobile_menu.getAttribute("animation");
@@ -109,5 +109,10 @@ mobile_menu_toggler.onclick = function() {
 	}
 	generateOverlay(element);
 }
-
+mobile_menu_toggler.onclick = function() {
+	mobileMenu();
+}
+mobile_menu_toggler.ontouchstart = function() {
+	mobileMenu();
+}
 /* MobileNavMenu ENDS here */
