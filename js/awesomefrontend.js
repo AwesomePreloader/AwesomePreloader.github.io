@@ -3,14 +3,31 @@
 function hide(element) {
 	element.style.display = "none";
 }
+function show(element) {
+	element.style.display = "block";
+}
 function fadeIn(element) {
 	element.style.opacity = 1;
 }
 function fadeOut(element) {
 	element.style.opacity = 0;
 }
-function Slide(element, direction) {
-	
+function slideIn(element) {
+	element.style.position = "absolute";
+	element.style.left = -(getComputedStyle(element, null).getPropertyValue("width").replace("px",""))+"px";
+	var duration = parseFloat(element.style.transitionDuration.replace("s","")) * 1000;
+	setTimeout(function() {
+		element.style.opacity = 1;
+		element.style.left = 0;
+	}, duration);
+	//element.style.left = 0;
+}
+function slideOut(element) {
+	element.style.left = -(getComputedStyle(element, null).getPropertyValue("width").replace("px",""))+"px";
+	var duration = parseFloat(element.style.transitionDuration.replace("s","")) * 1000;
+	setTimeout(function() {
+		element.style.opacity = 0;
+	}, duration);
 }
 /*** COMPONENTS ***/
 /* Progress Bar STARTS here */
@@ -61,7 +78,16 @@ var mobile_menu_toggler = document.getElementsByClassName("mobile-menu-toggler-b
 function mobileMenuOverlay() {
 	var general_overlay = document.getElementsByClassName("general-overlay")[0];
 	general_overlay.onclick = function() {
-		fadeOut(mobile_menu);
+		if (mobile_menu.getAttribute("animation") == "fadeIn") {
+			fadeOut(mobile_menu);
+			var duration = parseFloat(mobile_menu.style.transitionDuration.replace("s","")) * 1000;
+			setTimeout(function() {
+				mobile_menu.style.zIndex = -1;
+			}, duration);
+		}
+		else if (mobile_menu.getAttribute("animation") == "slideIn") {
+			slideOut(mobile_menu);
+		}
 	}
 }
 mobile_menu_toggler.onclick = function() {
@@ -76,6 +102,10 @@ mobile_menu_toggler.onclick = function() {
 		mobile_menu.style.opacity = 0;
 		mobile_menu.style.zIndex = 2;
 		fadeIn(mobile_menu);
+	}
+	if (animation == "slideIn") {
+		mobile_menu.style.zIndex = 2;
+		slideIn(mobile_menu);
 	}
 	generateOverlay(element);
 }
