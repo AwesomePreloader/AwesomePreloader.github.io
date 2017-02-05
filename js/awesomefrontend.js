@@ -107,11 +107,11 @@ function mobileMenu() {
 		slideIn(mobile_menu);
 	}
 }
+//mobile_menu_toggler.addEventListener("click", mobileMenu(), false);
 mobile_menu_toggler.onclick = function() {
 	mobileMenu();
 }
 mobile_menu_toggler.ontouchstart = function() {
-	alert("detected");
 	mobileMenu();
 }
 /* MobileNavMenu ENDS here */
