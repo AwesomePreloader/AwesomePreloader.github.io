@@ -111,6 +111,7 @@ mobile_menu_toggler.onclick = function() {
 	mobileMenu();
 }
 mobile_menu_toggler.ontouchstart = function() {
+	alert("detected");
 	mobileMenu();
 }
 /* MobileNavMenu ENDS here */
