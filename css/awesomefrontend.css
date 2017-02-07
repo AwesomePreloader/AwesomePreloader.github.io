@@ -16,20 +16,33 @@ body {
 img {
 	max-width: 100%;
 }
-
+h1 {
+	font-weight: 400;
+}
+h3 {
+	font-weight: 300;
+	color: #FFF;
+	margin-top: 35px;
+	margin-bottom: 35px;
+	font-style: italic;
+}
+p {
+	color: #FFF;
+}
 /* Animations */
 [animation=fadeIn],
-[animation=fadeOut]
+[animation=fadeOut],
+[animation=fadeToggle]
  {
 	transition-property: opacity;
 	-webkit-transition-property: opacity;
 	-moz-transition-property: opacity;
 	-o-transition-property: opacity;
 	
-	transition-duration: 1s;
-	-webkit-transition-duration: 1s;
-	-moz-transition-duration: 1s;
-	-o-transition-duration: 1s;
+	transition-duration: 0.5s;
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
 }
 [animation=slideIn] {
 	transition: ease;
@@ -41,18 +54,6 @@ img {
 	-moz-transition-duration:  1s;
 	-o-transition-duration: 1s;
 	transition-duration: 1s;
-	/*
-	transition-duration: 1s;
-	-webkit-transition-duration: 1s;
-	-moz-transition-duration: 1s;
-	-o-transition-duration: 1s;
-	
-	
-	transition-timing-funtion: ease-in;
-	-webkit-transition-timing-funtion: ease-in;
-	-moz-transition-timing-funtion: ease-in;
-	-o-transition-timing-funtion: ease-in;
-	*/
 }
 [animation=fadeIn] {
 	opacity: 0;
@@ -198,10 +199,10 @@ nav div.mobile-menu .mobile-menu-drawer li:hover > a {
 	-webkit-transition-property: opacity;
 	-o-transition-property: opacity;
 	
-	transition-duration: 1s;
-	-moz-transition-duration: 1s;
-	-webkit-transition-duration: 1s;
-	-o-transition-duration: 1s;
+	transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-webkit-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
 	opacity: 1;
 }
 .progress .bar {
@@ -246,16 +247,41 @@ nav div.mobile-menu .mobile-menu-drawer li:hover > a {
 }
 .big-caption p {
 	font-weight: 300;
-	font-size: 0.8em;
+	font-size: 1em;
 	text-shadow: 0px 2px 3px rgba(0,0,0,0.7);
+	font-style: italic;
 }
 /* Division */
 .division {
 	border-bottom: solid 1px rgba(255,255,255,0.3);
+}
+.big-caption .container .division {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
+.container .division {
+	margin-top: 4em;
+	margin-bottom: 4em;
+}
 
+/* Button */
+.btn {
+	text-decoration: none;
+	color: #FFF;
+}
+a.btn {
+	text-decoration: none;
+	color: #FFF;
+	background: #00bfa5;
+	padding: 1em;
+	display: inline-block;
+	margin-top: 2em;
+	transition: ease 0.3s;
+}
+a.btn:hover {
+	background: #64ffda;
+	color: #000;
+}
 /* GRID SYSTEM */
 .row
 {

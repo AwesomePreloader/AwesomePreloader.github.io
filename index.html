@@ -24,7 +24,7 @@
                             <li><a href="javascript:void(0);">Contact</a></li>
                         </ul>
                     </div>
-                    <div class="mobile-menu" animation="fadeIn" animation-duration="0.3s"></div>
+                    <div class="mobile-menu" animation="slideIn" animation-duration="0.5s"></div>
                 </div>
             </div>
     	</nav>
@@ -32,15 +32,83 @@
     <main>
     	<div class="big-caption">
         	<div class="container big-caption-card">
-                <h1>Welcome to our website!</h1>
+                <h1>Big caption text</h1>
                 <h2>This is a component to display big captions</h2>
                 <div class="division"></div>
                 <p>Also you can use a divison line and a paragraph inside the big caption to complete the style.</p>
+                <a href="javascript:void(0);" class="btn">Leer más</a>
             </div>
         </div>
         <div class="section">
         	<div class="container">
-        		<h1>Hola mundo</h1>
+            	<h1>The implementation:</h1>
+                <h3>Include AwesomeFrontend CSS and JS before the closing &lt;/body&gt; (you don't need jQuery):</h3>
+                <pre><code>
+    	&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;css/awesomefrontend.css&quot; /&gt;
+    	&lt;script type=&quot;text/javascript&quot; src=&quot;js/awesomefrontend.js&quot;&gt;&lt;/script&gt;
+                </code></pre>
+                <p></p>
+            </div>
+        </div>
+        <div class="division"></div>
+        <div class="section">
+        	<div class="container">
+        		<h1>Building a website's frontend the awesome way:</h1>
+                <h3>This is how the navigation menu of this website is marked up:</h3>
+                <pre><code class="html">
+	&lt;header&gt;
+	    &lt;nav&gt;
+        	&lt;div class=&quot;container&quot;&gt;
+            	    &lt;div class=&quot;row&quot;&gt;
+                    	&lt;div class=&quot;column s-12 m-12 l-3 nav-left&quot;&gt;
+                            &lt;div class=&quot;mobile-menu-toggler&quot;&gt;&lt;a class=&quot;mobile-menu-toggler-button&quot; href=&quot;javascript:void(0);&quot;&gt;&lt;i class=&quot;fa fa-bars&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+                            &lt;div class=&quot;menu-logo&quot;&gt;&lt;a href=&quot;index.html&quot; class=&quot;org-logo&quot;&gt;&lt;h1&gt;&lt;span class=&quot;org-logo-left&quot;&gt;Awesome&lt;/span&gt;Frontend&lt;/h1&gt;&lt;/a&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;column s-12 m-12 l-9 nav-right&quot;&gt;
+                            &lt;ul class=&quot;desktop-menu&quot;&gt;
+                                &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Docs&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;mobile-menu&quot; animation=&quot;slideIn&quot; animation-duration=&quot;0.5s&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/nav&gt;
+        &lt;/header&gt;
+                </code></pre>
+                <div class="division"></div>
+				<h3>The desktop menu:</h3>
+                <pre><code class="html">
+    	&lt;ul class=&quot;desktop-menu&quot;&gt;
+            &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Docs&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    	&lt;/ul&gt;
+                </code></pre>
+                <div class="division"></div>
+                <h3>The mobile menu declaration:</h3>
+                <pre><code class="html">
+	&lt;div class=&quot;mobile-menu&quot; animation=&quot;slideIn&quot; animation-duration=&quot;0.5s&quot;&gt;&lt;/div&gt;
+                </code></pre>
+                <p>The animation attribute sets the type of animation you want. Just type 'fadeIn', or 'slideIn' and you're ready to go.</p>
+                <p>The animation-duration sets the duration of the selected animation. Just type the duration in a Ns format (0.5, for example).</p>
+                <p>All anmiations are packed up with default speeds in case you don't want to set this value.</p>
+                <div class="division"></div>
+                <h3>The toggler burger icon. Here we used FontAwesome, those folks are just great.</h3>
+                <pre><code class="html">
+	&lt;div class=&quot;mobile-menu-toggler&quot;&gt;&lt;a class=&quot;mobile-menu-toggler-button&quot; href=&quot;javascript:void(0);&quot;&gt;&lt;i class=&quot;fa fa-bars&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;	
+                </code></pre>
+                <div class="division"></div>
+                <h1>By the way, this cool dividing lines are created with a simple tag like this...</h1>
+                <pre><code class="html">
+	&lt;div class='division'&gt;&lt;/div&gt;
+                </code></pre>
+                <div class="division"></div>
             </div>
         </div>
     </main>
@@ -51,10 +119,13 @@
     <link type="text/css" rel="stylesheet" href="css/awesomefrontend.css" />
     <link type="text/css" rel="stylesheet" href="css/custom.css" />
     <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/github.css" />
     <!-- jQuery -->
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <!-- Awesome JS -->
     <script type="text/javascript" src="js/awesomefrontend.js"></script>
+    <!-- Code Styler JS -->
+    <script type="text/javascript" src="js/highlight.pack.js"></script>
     <!-- Custom JS -->
     <script type="text/javascript" src="js/custom.js"></script>
 </body>

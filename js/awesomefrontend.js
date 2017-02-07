@@ -13,6 +13,8 @@ function fadeOut(element) {
 	element.style.opacity = 0;
 }
 function slideIn(element) {
+	var general_overlay = document.getElementsByClassName("general-overlay")[0];
+	general_overlay.style.opacity = 0;
 	element.style.position = "absolute";
 	element.style.left = -(getComputedStyle(element, null).getPropertyValue("width").replace("px",""))+"px";
 	var duration = parseFloat(element.style.transitionDuration.replace("s","")) * 1000;
@@ -20,13 +22,21 @@ function slideIn(element) {
 		element.style.opacity = 1;
 		element.style.left = 0;
 	}, duration);
+	setTimeout(function() {
+		fadeIn(general_overlay);
+	}, duration * 1.8);
 	//element.style.left = 0;
 }
 function slideOut(element) {
-	element.style.left = -(getComputedStyle(element, null).getPropertyValue("width").replace("px",""))+"px";
+	var general_overlay = document.getElementsByClassName("general-overlay")[0];
+	fadeOut(general_overlay);
 	var duration = parseFloat(element.style.transitionDuration.replace("s","")) * 1000;
 	setTimeout(function() {
+		element.style.left = -(getComputedStyle(element, null).getPropertyValue("width").replace("px",""))+"px";
+	}, duration * 0.6);
+	setTimeout(function() {
 		element.style.opacity = 0;
+		element.style.zIndex = -1;
 	}, duration);
 }
 /*** COMPONENTS ***/
@@ -50,7 +60,7 @@ var progress_style = window.getComputedStyle(document.getElementsByClassName("pr
 
 function hideProgressBar() {
 	if (document.getElementsByClassName("progress")[0].style.opacity == 1) {
-		var progress_duration = parseInt(progress_style.getPropertyValue('transition-duration').replace("s","")) * 1000;
+		var progress_duration = parseFloat(progress_style.getPropertyValue('transition-duration').replace("s","")) * 1000;
 		setTimeout(function() {
 			fadeOut(document.getElementsByClassName("progress")[0]);
 		}, progress_duration);
@@ -65,9 +75,16 @@ function loadPercentage() {
 }
 function progressBar() {
 	for (var i = 0; i < everything.length; i++) {
-		this.onload = loadPercentage();
+		everything[i].onload = function() {
+			loadPercentage();
+		}
 	}
 }
+progressBar();
+window.addEventListener('load', function() {
+	document.getElementsByClassName("bar")[0].style.width = "100%";
+	hideProgressBar();
+});
 /* Progress Bar ENDS here */
 
 /* MobileNavMenu STARTS here */
@@ -90,7 +107,7 @@ function mobileMenuOverlay() {
 	}
 }
 function mobileMenu() {
-	mobile_menu.innerHTML = "<div class='general-overlay'></div><ul class='mobile-menu-drawer'>"+desktop_menu.innerHTML+"</ul></div>";
+	mobile_menu.innerHTML = "<div class='general-overlay' animation='fadeToggle'></div><ul class='mobile-menu-drawer'>"+desktop_menu.innerHTML+"</ul></div>";
 	mobileMenuOverlay();
 	var animation = mobile_menu.getAttribute("animation");
 	var animation_duration = mobile_menu.getAttribute("animation-duration");
