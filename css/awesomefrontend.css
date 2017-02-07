@@ -280,7 +280,7 @@ a.btn {
 }
 a.btn:hover {
 	background: #64ffda;
-	color: #000;
+	color: #111;
 }
 /* GRID SYSTEM */
 .row
